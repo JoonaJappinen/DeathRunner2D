@@ -1,2 +1,5 @@
 16.1
 2 tuntia githubin kanssa säätämiseen ja projektin alustamiseen
+
+17.1.
+3 tuntia player- ja controller2d scriptin koodaamista

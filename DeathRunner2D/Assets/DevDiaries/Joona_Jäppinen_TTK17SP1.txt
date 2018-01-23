@@ -1,2 +1,5 @@
 16.1
 2 tuntia pelin suunnittelua ja projektinhallinnan pystytystä.
+
+17.1
+3 tuntia pelaajan hp ja vahingoittuvuus scriptin koodausta

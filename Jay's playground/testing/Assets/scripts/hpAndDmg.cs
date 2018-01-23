@@ -15,6 +15,7 @@ public class hpAndDmg : MonoBehaviour {
     {
         hp = 3;
         dmg = 1;
+        Debug.Log("HP: " + hp);
 	}
 	
 	// Update is called once per frame
@@ -27,6 +28,7 @@ public class hpAndDmg : MonoBehaviour {
 
         if(isAlive == false)
         {
+            Debug.Log("HP: " + hp + " You died..");
             Destroy(gameObject);
         }
 

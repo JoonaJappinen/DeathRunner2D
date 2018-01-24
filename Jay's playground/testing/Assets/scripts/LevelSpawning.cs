@@ -7,20 +7,33 @@ public class LevelSpawning : MonoBehaviour {
 
     public Transform prefab;
 
-    public float pancake = 3;
+    [SerializeField]
+    float locationY = 0;
+    [SerializeField]
+    float locationX = 30.0f;
+
+
     // Use this for initialization
     void Start ()
     {
-        //Instantiate(prefab);	
 
-        for (int i = 0; i < 3; i++)
-        {
-            Instantiate(prefab, new Vector3(i * 20.0F, pancake, 0), Quaternion.identity);
-        }
+        Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity);
+
+        generateLevel();
     }
 	
-	// Update is called once per frame
-	void Update () {
+
+	void Update ()
+    {
 		
 	}
+
+    void generateLevel()
+    {
+        for (int i = 1; i < 3; i++)
+        {
+            locationY -= 2.5f;
+            Instantiate(prefab, new Vector3(i * locationX, locationY, 0), Quaternion.identity);
+        }
+    }
 }

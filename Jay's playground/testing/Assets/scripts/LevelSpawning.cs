@@ -7,8 +7,9 @@ public class LevelSpawning : MonoBehaviour {
 
     public Transform prefab;
 
-    [SerializeField]
-    float locationY = 0;
+    
+    public float locationY = 0;
+    public int distance = 1;
     [SerializeField]
     float locationX = 30.0f;
 
@@ -19,21 +20,21 @@ public class LevelSpawning : MonoBehaviour {
 
         Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity);
 
-        generateLevel();
+        //GenerateLevel();
     }
 	
-
-	void Update ()
+    public void GenerateLevel()
     {
-		
-	}
+        Debug.Log("Hello world!");
 
-    void generateLevel()
-    {
-        for (int i = 1; i < 3; i++)
+        Instantiate(prefab, new Vector3(distance * locationX, locationY, 0), Quaternion.identity);
+
+
+        /*for (int i = 1; i < 3; i++)
         {
-            locationY -= 2.5f;
+            //locationY -= 2.5f;
             Instantiate(prefab, new Vector3(i * locationX, locationY, 0), Quaternion.identity);
-        }
+        }*/
+        
     }
 }

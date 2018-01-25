@@ -7,13 +7,18 @@ public class cameraFollow : MonoBehaviour {
 
     [SerializeField]
     GameObject cameraTarget;
+    [SerializeField]
+    float offsetX;
+    [SerializeField]
+    float offsetY;
+
 
     private Vector3 offset;
 
 	// Use this for initialization
 	void Start ()
     {
-        offset = new Vector3(15, 5, -10);
+        offset = new Vector3(offsetX, offsetY, -10);
 	}
 	
 	// Update is called once per frame

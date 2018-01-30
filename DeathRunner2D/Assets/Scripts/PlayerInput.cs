@@ -16,6 +16,7 @@ public class PlayerInput : MonoBehaviour {
         Vector2 directionalInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         player.SetDirectionalInput(directionalInput);
 
+        //Hyppy
         if(Input.GetButtonDown("Jump"))
         {
             player.OnJumpInputDown();
@@ -26,6 +27,7 @@ public class PlayerInput : MonoBehaviour {
             player.OnJumpInputUp();
         }
 
+        //Sprintti
         if (Input.GetButtonDown("Fire3"))
         {
             player.OnSprintDown();
@@ -35,6 +37,11 @@ public class PlayerInput : MonoBehaviour {
         {
             player.OnSprintUp();
         }
+
+        /*if(directionalInput.y > 0 && Input.GetButtonDown("Jump"))
+        {
+
+        }*/
 
     }
 }

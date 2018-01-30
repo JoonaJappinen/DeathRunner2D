@@ -683,7 +683,7 @@ Prefab:
     - target: {fileID: 114334435248197006, guid: 4eebf6b04d67abd498b016d7d8c8d40b,
         type: 2}
       propertyPath: wallJumpClimb.y
-      value: 16
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 114334435248197006, guid: 4eebf6b04d67abd498b016d7d8c8d40b,
         type: 2}
@@ -704,6 +704,11 @@ Prefab:
         type: 2}
       propertyPath: wallLeap.y
       value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 114334435248197006, guid: 4eebf6b04d67abd498b016d7d8c8d40b,
+        type: 2}
+      propertyPath: highJumpMultiplier
+      value: 0.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4eebf6b04d67abd498b016d7d8c8d40b, type: 2}

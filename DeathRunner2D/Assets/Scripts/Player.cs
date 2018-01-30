@@ -9,6 +9,7 @@ public class Player : MonoBehaviour {
     public float maxJumpHeight = 4;
     public float minJumpHeight = 1;
     public float timeToJumpApex = .4f;
+    public float highJumpMultiplier = 0.75f;
     float accelerationTimeAirborne = .2f;
     float accelerationTimeGrounded = .1f;
     float sprintSpeed = 18;
@@ -44,7 +45,7 @@ public class Player : MonoBehaviour {
         gravity = -(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex, 2);
         maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
         minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(gravity) * minJumpHeight);
-        print("Gravity: " + gravity + ", Jump Velocity: " + maxJumpVelocity);
+        //print("Gravity: " + gravity + ", Jump Velocity: " + maxJumpVelocity);
     }
 
     void Update()
@@ -91,11 +92,18 @@ public class Player : MonoBehaviour {
                 velocity.y = wallLeap.y;
             }
         }
+
+        //ylöspäin ja hyppyä painaessa korkeampi hyppy
+        if (controller.collisions.below && directionalInput.y > 0)
+        {
+            velocity.y = maxJumpVelocity * ((1+ directionalInput.y)* highJumpMultiplier);
+        }
         //tavallinen hyppy
-        if (controller.collisions.below)
+        else if (controller.collisions.below)
         {
             velocity.y = maxJumpVelocity;
-        }
+        }  
+        //print(directionalInput);
     }
 
     public void OnJumpInputUp()
@@ -158,7 +166,7 @@ public class Player : MonoBehaviour {
         velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);
         //painovoima
         velocity.y += gravity * Time.deltaTime;
-        print(velocity.x);
+        //print(velocity.x);
     }
 
 }

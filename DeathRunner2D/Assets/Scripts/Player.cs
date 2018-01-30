@@ -11,6 +11,7 @@ public class Player : MonoBehaviour {
     public float timeToJumpApex = .4f;
     float accelerationTimeAirborne = .2f;
     float accelerationTimeGrounded = .1f;
+    float sprintSpeed = 18;
     float moveSpeed = 6;
 
     public float wallSlideSpeedMax = 3;
@@ -32,6 +33,7 @@ public class Player : MonoBehaviour {
     Controller2D controller;
     Vector2 directionalInput;
     bool wallSliding;
+    //bool sprinting;
     int wallDirX;
 
     void Start()
@@ -104,6 +106,16 @@ public class Player : MonoBehaviour {
         }
     }
 
+    public void OnSprintDown()
+    {
+        moveSpeed = sprintSpeed;
+    }
+
+    public void OnSprintUp()
+    {
+        moveSpeed = 6;
+    }
+
     void HandleWallSliding()
     {
         wallDirX = (controller.collisions.left) ? -1 : 1;
@@ -142,10 +154,11 @@ public class Player : MonoBehaviour {
     void CalculateVelocity()
     {
         //horisontaalinen liike pelaajan inputin mukaan
-        float targetVelocityX = directionalInput.x * moveSpeed;
+        float targetVelocityX = directionalInput.x* moveSpeed;
         velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);
         //painovoima
         velocity.y += gravity * Time.deltaTime;
+        print(velocity.x);
     }
 
 }

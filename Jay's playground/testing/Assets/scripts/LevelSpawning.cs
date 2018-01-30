@@ -4,37 +4,44 @@ using UnityEngine;
 
 public class LevelSpawning : MonoBehaviour {
 
+    [SerializeField]
+    Transform prefab;
 
-    public Transform prefab;
+    [SerializeField]
+    Transform[] Cell;
 
-    
-    public float locationY = 0;
-    public int distance = 1;
+    float locationY = 0;
+
     [SerializeField]
     float locationX = 30.0f;
+
+    Random random = new Random();
+    int levelCell;
+
 
 
     // Use this for initialization
     void Start ()
-    {
-
-        Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity);
-
-        //GenerateLevel();
+    {        
+        Instantiate(Cell[1], new Vector3(0, 0, 0), Quaternion.identity);
     }
 	
-    public void GenerateLevel()
+    public void UpdateY(float Y)
     {
-        Debug.Log("Hello world!");
-
-        Instantiate(prefab, new Vector3(distance * locationX, locationY, 0), Quaternion.identity);
-
-
-        /*for (int i = 1; i < 3; i++)
-        {
-            //locationY -= 2.5f;
-            Instantiate(prefab, new Vector3(i * locationX, locationY, 0), Quaternion.identity);
-        }*/
-        
+        locationY = Y;
     }
+
+    void generateLevel()
+    {
+        
+
+        for (int i = 1; i < 20; i++)
+        {
+            levelCell = (int) Random.Range(0, 2);
+
+            Instantiate(Cell[levelCell], new Vector3(i * locationX, locationY, 0), Quaternion.identity);
+        }
+    }
+
+  
 }

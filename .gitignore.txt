@@ -1,11 +1,21 @@
 # Created by https://www.gitignore.io/api/unity
 
 ### Unity ###
-/[Ll]ibrary/
-/[Tt]emp/
-/[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
+/DeathRunner2D/[Ll]ibrary/
+/DeathRunner2D/[Tt]emp/
+/DeathRunner2D/[Oo]bj/
+/DeathRunner2D/[Bb]uild/
+/DeathRunner2D/[Bb]uilds/
+/Jay's playground/testing/[Ll]ibrary/
+/Jay's playground/testing/[Tt]emp/
+/Jay's playground/testing/[Oo]bj/
+/Jay's playground/testing/[Bb]uild/
+/Jay's playground/testing/[Bb]uilds/
+/Sean Using/Menu/[Ll]ibrary/
+/Sean Using/Menu/[Tt]emp/
+/Sean Using/Menu/[Oo]bj/
+/Sean Using/Menu/[Bb]uild/
+/Sean Using/Menu/[Bb]uilds/
 /Assets/AssetStoreTools*
 
 # Visual Studio 2015 cache directory
